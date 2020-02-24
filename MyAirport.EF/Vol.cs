@@ -22,7 +22,13 @@ namespace FLS.MyAirport.EF
 
         public string DES { get; set; }
 
-        public List<Bagage> Bagages { get; set; }
+        //public List<Bagage> Bagages { get; set; }
+
+        //Permet de faire vol1.bagages
+        // Ne devrait pas changer la base. EF va modifier la REQUETE quand il va chercher l'info, mais la base reste la même.
+        // Virtual : Fait la reqûete de jointure seulement si on fait vol1.bagages, permet meilleure opti
+        public /*virtual*/ ICollection<Bagage> Bagages { get; set; } 
+
 
         /*public Vol(string CIE)
         {

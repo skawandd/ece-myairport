@@ -24,9 +24,8 @@ namespace FLS.MyAirport.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlite("Data Source=airport.db");
-            //optionsBuilder.UseSqlServer(
-            //    @"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
 
             //Pas logique que lui aille chercher l'option dans le fichier de conf... étape d'après
             // Pas logique que le connecteur sur la bdd ait la charge d'aller chercher la chaine de connection
