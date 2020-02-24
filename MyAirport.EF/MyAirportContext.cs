@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace FLS.MyAirport.EF
 {
@@ -14,8 +15,9 @@ namespace FLS.MyAirport.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlite("Data Source=airport.db");
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(
+            //    @"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
         }
     }
 }
