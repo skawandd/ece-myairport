@@ -9,39 +9,71 @@ namespace FLS.MyAirport.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
+            System.Console.WriteLine("MyAirport project bonjour!!");
             using (var db = new MyAirportContext())
             {
-                Bagage b1 = new Bagage { CodeIata = "1234567890" };
-                Bagage b2 = new Bagage { CodeIata = "1234567890"/*, Poids = 4 */};
-
-                Vol v1 = new Vol { CIE = "LH",
+                // Create
+                Console.WriteLine("Création du vol LH1232");
+                Vol v1 = new Vol
+                {
+                    CIE= "LH",
+                    DES = "BKK",
                     DHC = Convert.ToDateTime("14/01/2020 16:45"),
-                    LIG = "42384",
-                    PKG = "53R",
-                    Bagages = new System.Collections.Generic.List<Bagage> { b1, b2 }
+                    IMM = "RZ62",
+                    LIG = "1232",
+                    PKG = "R52",
+                    PAX = 238
                 };
+                db.Add(v1);
+
+                Console.WriteLine("Creation vol SQ333");
                 Vol v2 = new Vol
                 {
-                    CIE = "SQ",
-                    DHC = Convert.ToDateTime("14/01/2020 12:15"),
+                    CIE = "SK",
+                    DES = "CDG",
+                    DHC = Convert.ToDateTime("14/01/2020 18:20"),
+                    IMM = "TG43",
                     LIG = "333",
-                    PKG = "78R"
+                    PKG = "R51",
+                    PAX = 423
                 };
-                db.Vols.Add(v1);
-                db.Vols.Add(v2);
+                db.Add(v2);
+
+                Console.WriteLine("creation du bagage 012387364501");
+                Bagage b1 = new Bagage
+                {
+                    Classe = "Y",
+                    CodeIata = "012387364501",
+                    DateCreation = Convert.ToDateTime("14/01/2020 12:52"),
+                    Destination = "BEG"
+                };
+                db.Add(b1);
 
                 db.SaveChanges();
+                Console.ReadLine();
 
-                using (var context = new MyAirportContext())
+                // Read
+                Console.WriteLine("Voici la liste des vols disponibles");
+                var vol = db.Vols
+                    .OrderBy(v => v.CIE);
+                foreach (var v in vol)
                 {
-                    var vols = context.Vols.ToList().First();
-                    Console.WriteLine(vols.CIE.ToString());
+                    Console.WriteLine($"Le vol {v.CIE}{v.LIG} N° {v.VolId} a destination de {v.DES} part à {v.DHC} heure");
                 }
+                Console.ReadLine();
 
+                // Update
+                Console.WriteLine($"Le bagage {b1.BagageID} est modifié pour être rattaché au vol {v1.VolId} => {v1.CIE}{v1.LIG}");
+                b1.VolID = v1.VolId;
+                db.SaveChanges();
+                Console.ReadLine();
 
+                // Delete vol et bagages du vol
+                Console.WriteLine($"Suppression du vol {v1.VolId} => {v1.CIE}{v1.LIG}");
+                db.Remove(v1);
+                db.SaveChanges();
+                Console.ReadLine();
             }
-                
         }
     }
 }

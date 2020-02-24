@@ -10,8 +10,8 @@ namespace FLS.MyAirport.EF
     {
         [Key]
         public int BagageID { get; set; }
-        [ForeignKey("VolId")]
-        public int VolID { get; set; }
+//        [ForeignKey("VolId")]
+        public int? VolID { get; set; }
 
         public string CodeIata { get; set; }
 
