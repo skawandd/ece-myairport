@@ -9,6 +9,13 @@ namespace FLS.MyAirport.ConsoleApp
 {
     class Program
     {
+        private static string _connStr = @"
+           Server=127.0.0.1,1433;
+           Database=Airport;
+           User Id=SA;
+           Password=Password123*
+        ";
+
         public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
         static void Main(string[] args)
@@ -16,7 +23,7 @@ namespace FLS.MyAirport.ConsoleApp
             System.Console.WriteLine("MyAirport project bonjour!!");
 
             var optionsBuilder = new DbContextOptionsBuilder<MyAirportContext>();
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            optionsBuilder.UseSqlServer(/*@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True"*/ _connStr);
             optionsBuilder.UseLoggerFactory(MyAirportLoggerFactory);
 
             using (var db = new MyAirportContext(optionsBuilder.Options))

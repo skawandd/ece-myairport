@@ -8,8 +8,17 @@ using Microsoft.Extensions.Logging;
 
 namespace FLS.MyAirport.EF
 {
+
     public class MyAirportContext : DbContext
     {
+
+        private static string _connStr = @"
+           Server=127.0.0.1,1433;
+           Database=Airport;
+           User Id=SA;
+           Password=Password123*
+        ";
+
         //https://docs.microsoft.com/fr-fr/ef/core/miscellaneous/logging?tabs=v3
         //public static readonly ILoggerFactory MyAirportLoggerFactory 
         //    = LoggerFactory.Create(builder => { builder.AddConsole(); }); // Simple factory , il faut créer le logger 
@@ -28,7 +37,7 @@ namespace FLS.MyAirport.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlite("Data Source=airport.db");
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(/*@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True"*/ _connStr);
             //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
 
             //Pas logique que lui aille chercher l'option dans le fichier de conf... étape d'après
