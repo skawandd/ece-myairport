@@ -2,15 +2,24 @@
 using System.Linq;
 
 using FLS.MyAirport.EF;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace FLS.MyAirport.ConsoleApp
 {
     class Program
     {
+        public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
+
         static void Main(string[] args)
         {
             System.Console.WriteLine("MyAirport project bonjour!!");
-            using (var db = new MyAirportContext())
+
+            var optionsBuilder = new DbContextOptionsBuilder<MyAirportContext>();
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            optionsBuilder.UseLoggerFactory(MyAirportLoggerFactory);
+
+            using (var db = new MyAirportContext(optionsBuilder.Options))
             {
                 // Create
                 Console.WriteLine("Création du vol LH1232");
