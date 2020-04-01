@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using Microsoft.EntityFrameworkCore;
+using FLS.MyAirport.EF; // Pour le MyAirportContext
+
 namespace MyAirportWebApi
 {
     public class Startup
@@ -25,6 +28,7 @@ namespace MyAirportWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyAirportContext>(option => option.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True"));
             services.AddControllers();
         }
 
