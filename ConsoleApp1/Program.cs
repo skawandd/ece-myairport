@@ -16,7 +16,7 @@ namespace FLS.MyAirport.ConsoleApp
             System.Console.WriteLine("MyAirport project bonjour!!");
 
             var optionsBuilder = new DbContextOptionsBuilder<MyAirportContext>();
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
             optionsBuilder.UseLoggerFactory(MyAirportLoggerFactory);
 
             using (var db = new MyAirportContext(optionsBuilder.Options))
