@@ -12,7 +12,7 @@ namespace FLS.MyAirport.EF
         public int BagageID { get; set; }
 //        [ForeignKey("VolId")]
         public int? VolID { get; set; }
-
+        [Column(TypeName = "char(12)")]
         public string CodeIata { get; set; }
 
         public DateTime DateCreation { get; set; }

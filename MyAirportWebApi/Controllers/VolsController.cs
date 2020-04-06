@@ -29,16 +29,23 @@ namespace MyAirportWebApi.Controllers
 
         // GET: api/Vols/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Vol>> GetVol(int id)
+        public async Task<ActionResult<Vol>> GetVol(int id, [FromQuery] bool bagages = false)
         {
-            var vol = await _context.Vols.FindAsync(id);
+            Vol volRes;
+            if (bagages)
+                volRes = await _context.Vols.Include(v => v.Bagages).FirstAsync(v=> v.VolId==id);//.Where(v => v.VolId == id).FirstAsync(); // On veut afficher les vols et les bagages 
+            else
+                volRes = await _context.Vols.FindAsync(id);
+            //volRes = await _context.Vols.FindAsync(id);
 
-            if (vol == null)
+            if (volRes == null)
             {
                 return NotFound();
             }
+            // Obligé de mettre les find async dans le if sinon problème de bagage dans le vol dans le bagage . Et les méthodes écrasent toute deux le datacontext 
 
-            return vol;
+            return volRes;
+
         }
 
         // PUT: api/Vols/5

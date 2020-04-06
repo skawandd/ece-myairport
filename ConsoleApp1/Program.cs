@@ -25,8 +25,8 @@ namespace FLS.MyAirport.ConsoleApp
                 Console.WriteLine("Création du vol LH1232");
                 Vol v1 = new Vol
                 {
-                    CIE= "LH",
-                    DES = "BKK",
+                    CIE = @"LH",
+                    DES = @"BKK",
                     DHC = Convert.ToDateTime("14/01/2020 16:45"),
                     IMM = "RZ62",
                     LIG = "1232",
@@ -47,10 +47,12 @@ namespace FLS.MyAirport.ConsoleApp
                     PAX = 423
                 };
                 db.Add(v2);
+                db.SaveChanges();
 
                 Console.WriteLine("creation du bagage 012387364501");
                 Bagage b1 = new Bagage
                 {
+                    //VolID = v2.VolId,
                     Classe = "Y",
                     CodeIata = "012387364501",
                     DateCreation = Convert.ToDateTime("14/01/2020 12:52"),
@@ -72,8 +74,10 @@ namespace FLS.MyAirport.ConsoleApp
                 Console.ReadLine();
 
                 // Update
-                Console.WriteLine($"Le bagage {b1.BagageID} est modifié pour être rattaché au vol {v1.VolId} => {v1.CIE}{v1.LIG}");
-                b1.VolID = v1.VolId;
+                //Console.WriteLine($"Le bagage {b1.BagageID} est modifié pour être rattaché au vol {v1.VolId} => {v1.CIE}{v1.LIG}");
+                Console.WriteLine($"Le bagage {b1.BagageID} est modifié pour être rattaché au vol {v2.VolId} => {v2.CIE}{v2.LIG}");
+
+                b1.VolID = v2.VolId;
                 db.SaveChanges();
                 Console.ReadLine();
 
