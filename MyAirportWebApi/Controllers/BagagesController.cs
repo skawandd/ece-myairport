@@ -34,8 +34,8 @@ namespace MyAirportWebApi.Controllers
         }
 
         // GET: api/Bagages/5
-        /*[ProducesResponseType(StatusCode.Status200OK)]
-        [ProducesResponseType(StatusCode.Status404NotFound)]marche pas*/
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
         public async Task<ActionResult<Bagage>> GetBagage(int id)
         {
@@ -57,9 +57,9 @@ namespace MyAirportWebApi.Controllers
         /// <param name="id">Identifiant du bagage</param>
         /// <param name="bagage">Nouvelle valeur du bagage</param>
         /// <returns></returns>
-        /*[ProducesResponseType(StatusCode.Status200OK)]
-        [ProducesResponseType(StatusCode.Status404NotFound)]
-        [ProducesResponseType(StatusCode.Status400BadRequest)]*/
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBagage(int id, Bagage bagage)
         {
