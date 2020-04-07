@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FLS.MyAirport.EF;
 
+//using Microsoft.AspNetCore.Mvc.StatusCode;
+
 namespace MyAirportWebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -21,6 +23,10 @@ namespace MyAirportWebApi.Controllers
         }
 
         // GET: api/Bagages
+        /// <summary>
+        /// Selectionne l'ensemble des bagages de manière asynchrone
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bagage>>> GetBagages()
         {
@@ -28,6 +34,8 @@ namespace MyAirportWebApi.Controllers
         }
 
         // GET: api/Bagages/5
+        /*[ProducesResponseType(StatusCode.Status200OK)]
+        [ProducesResponseType(StatusCode.Status404NotFound)]marche pas*/
         [HttpGet("{id}")]
         public async Task<ActionResult<Bagage>> GetBagage(int id)
         {
@@ -41,9 +49,17 @@ namespace MyAirportWebApi.Controllers
             return bagage;
         }
 
-        // PUT: api/Bagages/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+
+        /// <summary>
+        /// Methode permettant la modification d'un bagage
+        /// PUT: api/bagages/5
+        /// </summary>
+        /// <param name="id">Identifiant du bagage</param>
+        /// <param name="bagage">Nouvelle valeur du bagage</param>
+        /// <returns></returns>
+        /*[ProducesResponseType(StatusCode.Status200OK)]
+        [ProducesResponseType(StatusCode.Status404NotFound)]
+        [ProducesResponseType(StatusCode.Status400BadRequest)]*/
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBagage(int id, Bagage bagage)
         {
