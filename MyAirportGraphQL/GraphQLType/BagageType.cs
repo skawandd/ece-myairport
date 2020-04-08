@@ -20,7 +20,7 @@ namespace MyAirportGraphQL.GraphQL
             Field(x => x.Prioritaire);
             Field(x => x.STA);
             Field(x => x.SSUR);
-            Field(x => x.VolID);
+            //Field(x => x.VolID);
         }
     }
 }

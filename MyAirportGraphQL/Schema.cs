@@ -14,7 +14,7 @@ namespace MyAirportGraphQL
         public AirportSchema(IDependencyResolver resolver) : base(resolver)
         {
             Query = resolver.Resolve<AirportQuery>();
-
+          
         }
     }
 }

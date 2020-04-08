@@ -20,7 +20,12 @@ namespace MyAirportGraphQL
             Field<ListGraphType<BagageType>>(
                 "bagages",
                 resolve: context => db.Bagages.ToList());
-            
+            /*Field<BagageType>(
+                "bagage",
+                arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "BagageId" }),
+                resolve: context => db.Bagages.First(b => b.BagageID == context.Get//.GetArgument<int>("Bagage")));*/
+
+
         }
     }
 }
