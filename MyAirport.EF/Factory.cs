@@ -10,7 +10,7 @@ namespace MyAirport.EF
         public MyAirportContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyAirportContext>();
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirportCodeFirst;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True");
             var loggerFactory = LoggerFactory.Create(builder =>
             {
                 builder
