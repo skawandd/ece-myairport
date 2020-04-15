@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirport.EF", "MyAirport.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportWebApi", "MyAirportWebApi\MyAirportWebApi.csproj", "{DA90C305-1EE0-4A10-B794-F25737184CB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirportGraphQL", "MyAirportGraphQL\MyAirportGraphQL.csproj", "{52D783F0-EDFD-4D0F-855D-6F2AA7635798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportGraphQL", "MyAirportGraphQL\MyAirportGraphQL.csproj", "{52D783F0-EDFD-4D0F-855D-6F2AA7635798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirportRazor", "MyAirportRazor\MyAirportRazor.csproj", "{87762282-E67C-4F73-B30B-A3EE4780AE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{52D783F0-EDFD-4D0F-855D-6F2AA7635798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D783F0-EDFD-4D0F-855D-6F2AA7635798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D783F0-EDFD-4D0F-855D-6F2AA7635798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87762282-E67C-4F73-B30B-A3EE4780AE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87762282-E67C-4F73-B30B-A3EE4780AE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87762282-E67C-4F73-B30B-A3EE4780AE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87762282-E67C-4F73-B30B-A3EE4780AE02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
