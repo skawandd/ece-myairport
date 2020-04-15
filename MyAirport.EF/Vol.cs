@@ -72,6 +72,7 @@ namespace FLS.MyAirport.EF
             base(CIE, LIG, DHC);
             Bagages = null;
         }*/
+        public Vol() { }
 
     }
 }

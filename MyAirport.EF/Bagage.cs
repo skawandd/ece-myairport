@@ -27,5 +27,7 @@ namespace FLS.MyAirport.EF
         public string Destination { get; set; }
 
         public string Escale { get; set; }
+
+        public Bagage() { }
     }
 }
