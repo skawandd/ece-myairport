@@ -21,6 +21,10 @@ namespace MyAirportWebApi.Controllers
         }
 
         // GET: api/Vols
+        /// <summary>
+        /// Selectionne l'ensemble des vols de manière asynchrone
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vol>>> GetVols()
         {
@@ -59,6 +63,12 @@ namespace MyAirportWebApi.Controllers
         // PUT: api/Vols/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Modifie un vol de manière asynchrone
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="vol"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVol(int id, Vol vol)
         {
@@ -91,6 +101,11 @@ namespace MyAirportWebApi.Controllers
         // POST: api/Vols
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Ajout d'un vol de manière asynchrone
+        /// </summary>
+        /// <param name="vol"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Vol>> PostVol(Vol vol)
         {
@@ -101,6 +116,11 @@ namespace MyAirportWebApi.Controllers
         }
 
         // DELETE: api/Vols/5
+        /// <summary>
+        /// Suppression d'un vol de manière asynchrone
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Vol>> DeleteVol(int id)
         {

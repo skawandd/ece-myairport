@@ -71,6 +71,7 @@ namespace MyAirportWebApi
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                //https://localhost:44367/swagger/v1/swagger.json
             });
 
             if (env.IsDevelopment())

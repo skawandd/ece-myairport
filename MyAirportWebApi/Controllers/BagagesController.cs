@@ -34,6 +34,11 @@ namespace MyAirportWebApi.Controllers
         }
 
         // GET: api/Bagages/5
+        /// <summary>
+        /// Selectionne un bagage de manière asynchrone
+        /// </summary>
+        /// <param name="id">ID du bagage voulu</param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
@@ -92,6 +97,11 @@ namespace MyAirportWebApi.Controllers
         // POST: api/Bagages
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Ajout d'un bagage de manière asynchrone
+        /// </summary>
+        /// <param name="bagage"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Bagage>> PostBagage(Bagage bagage)
         {
@@ -102,6 +112,11 @@ namespace MyAirportWebApi.Controllers
         }
 
         // DELETE: api/Bagages/5
+        /// <summary>
+        /// Suppression d'un bagage de manière asynchrone
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Bagage>> DeleteBagage(int id)
         {
