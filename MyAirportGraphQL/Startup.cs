@@ -45,6 +45,13 @@ namespace MyAirportGraphQL
                 options.EnableMetrics = true;
                 options.ExposeExceptions = true;
             });
+
+            // Partie spécifique pour GraphiQL :
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
             #endregion
 
             services.AddDbContext<MyAirportContext>(option => 

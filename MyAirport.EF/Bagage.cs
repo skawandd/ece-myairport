@@ -41,7 +41,10 @@ namespace FLS.MyAirport.EF
         /// </summary>
         [Display(Name = "Classe Passager")]
         public string? Classe { get; set; }
-        public bool? Prioritaire { get; set; }
+        /// <summary>
+        /// Priorité passager
+        /// </summary>
+        public bool Prioritaire { get; set; }
 
         [Display(Name = "Status")]
         public string? STA { get; set; }
