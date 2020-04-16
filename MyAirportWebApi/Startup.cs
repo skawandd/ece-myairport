@@ -16,6 +16,7 @@ using FLS.MyAirport.EF; // Pour le MyAirportContext
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace MyAirportWebApi
 {
@@ -33,6 +34,13 @@ namespace MyAirportWebApi
         {
             services.AddDbContext<MyAirportContext>(option => option.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Airport;Integrated Security=True"));
             services.AddControllers();
+
+            // Permet de prévenir les erreurs de référence cyclique entre bagage et vol pour conserver la propriété de navigation sur bagage
+            // https://stackoverflow.com/questions/59199593/net-core-3-0-possible-object-cycle-was-detected-which-is-not-supported
+            // https://localhost:44367/api/vols/12?bagages=true
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
             services.AddSwaggerGen(c =>
             {
