@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 
 namespace FLS.MyAirport.EF
 {
+    /// <summary>
+    /// MyAirportContext est un gestionnaire de model dédié au projet MyAirport
+    /// </summary>
     public class MyAirportContext : DbContext
     {
         //https://docs.microsoft.com/fr-fr/ef/core/miscellaneous/logging?tabs=v3
@@ -17,10 +20,20 @@ namespace FLS.MyAirport.EF
         // https://docs.microsoft.com/fr-fr/ef/core/miscellaneous/logging?tabs=v3
         //Créer mon propre logger dédié pour y balancer du log 
 
+        /// <summary>
+        /// Retourne la liste des Bagages présents dans le datacontext
+        /// </summary>
+        public DbSet<Bagage>? Bagages { get; set; }
 
-        public DbSet<Bagage> Bagages { get; set; }
-        public DbSet<Vol> Vols { get; set; }
+        /// <summary>
+        /// Retourne la liste des Vols présents dans le datacontext
+        /// </summary>
+        public DbSet<Vol>? Vols { get; set; }
 
+        /// <summary>
+        /// Constructeur de dbContext
+        /// </summary>
+        /// <param name="options"></param>
         public MyAirportContext(DbContextOptions<MyAirportContext> options) : base(options) { }
 
         public MyAirportContext() : base() { }

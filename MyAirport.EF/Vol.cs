@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace FLS.MyAirport.EF
@@ -17,30 +18,37 @@ namespace FLS.MyAirport.EF
         /// <summary>
         /// Compagnie du vol
         /// </summary>
+        [Display(Name = "Compagnie")]
         public string CIE { get; set; }
         /// <summary>
         /// Numéro de ligne
         /// </summary>
+        [Display(Name = "Ligne")]
         public string LIG { get; set; }
         /// <summary>
-        /// Dernier horaire connu
+        /// Dernier horaire connu, horaire de départ du vol
         /// </summary>
+        [Display(Name = "Dernier Horaire Connu")]
         public DateTime DHC { get; set; }
         /// <summary>
         /// Parking affecté au vol
         /// </summary>
+        [Display(Name = "Parking")]
         public string? PKG { get; set; }
         /// <summary>
-        /// Numéro immatr
+        /// Numéro d'immatriculation de l'avion
         /// </summary>
+        [Display(Name = "Immatriculation")]
         public string? IMM { get; set; }
         /// <summary>
         /// Nombre de passagers 
         /// </summary>
+        [Display(Name = "Passagers")]
         public short? PAX { get; set; }
         /// <summary>
-        /// Ville de destination 
+        /// Ville de destination finale du vol
         /// </summary>
+        [Display(Name = "Destination")]
         public string? DES { get; set; }
 
         //public List<Bagage> Bagages { get; set; }
