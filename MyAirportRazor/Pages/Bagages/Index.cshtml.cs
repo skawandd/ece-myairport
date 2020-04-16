@@ -22,7 +22,7 @@ namespace MyAirport.Razor.Pages.Bagages
 
         public async Task OnGetAsync()
         {
-            Bagage = await _context.Bagages.ToListAsync();
+            Bagage = await _context.Bagages.Include(b => b.Vol).ToListAsync();
         }
     }
 }

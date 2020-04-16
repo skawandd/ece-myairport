@@ -35,6 +35,9 @@ namespace MyAirport.Razor.Pages.Bagages
             {
                 return NotFound();
             }
+
+            ViewData["VolId"] = BagagesHelper.ListVolInfo(_context);
+
             return Page();
         }
 

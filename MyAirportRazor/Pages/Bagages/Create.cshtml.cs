@@ -20,6 +20,10 @@ namespace MyAirport.Razor.Pages.Bagages
 
         public IActionResult OnGet()
         {
+            //ViewData["VolID"] = new SelectList(_context.Vols, "VolID", "CIE" + "LIG" + "DHC");// Ne fonctionne pas, je dois construire ma liste avec ma requête 
+
+            ViewData["VolID"] = BagagesHelper.ListVolInfo(_context);
+
             return Page();
         }
 
