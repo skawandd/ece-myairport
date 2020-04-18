@@ -71,9 +71,8 @@ namespace MyAirportGraphQL
             app.UseGraphQL<AirportSchema>();
             //https://graphql-dotnet.github.io/docs/getting-started/introduction/
             app.UseGraphiQLServer(new GraphiQLOptions { GraphQLEndPoint="/graphql", GraphiQLPath = "/graphiql" });
-            // /graphql?Query={bagages{bagageId,%20codeIata}}
-            // https://localhost:44323/graphql?Query={bagages{bagageID,%20codeIata}}
-            // https://localhost:44323/graphiql?Query={bagages{bagageID%2C%20codeIata}}&query={bagages{bagageID%2C%20codeIata}}
+            // https://localhost:44323/graphql?query={bagages{bagageID,codeIata}}
+            // https://localhost:44323/graphiql?query={bagages{bagageID,%20codeIata}}
 
             //////////////
             app.UseHttpsRedirection();
